@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Product Inventory System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Product Inventory System</h1>
+
+<div class="form-container">
+
+<h2>Add Product</h2>
+
+<form id="productForm">
+
+<input type="text" id="name" placeholder="Product Name" required>
+<input type="number" id="price" placeholder="Price" min="1" required>
+<input type="number" id="quantity" placeholder="Quantity" min="1" required>
+
+<button type="submit">Add Product</button>
+<button type="reset">Clear</button>
+
+</form>
+
+<p id="successMessage"></p>
+
+</div>
+
+<h2 id="inventoryHeading">Inventory (0 items)</h2>
+<p id="loadingMessage" style="display:none;">Loading products...</p>
+<p id="warningMessage" style="color:red;"></p>
+
+<div class="filter-buttons">
+<button onclick="showAll()">Show All</button>
+<button onclick="showLowStock()">Low Stock</button>
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>Name</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody id="productTable">
+
+<tr>
+<td colspan="4">No products in inventory</td>
+</tr>
+
+</tbody>
+
+</table>
+<div id="updateModal" class="modal">
+  <div class="modal-content">
+    <h3>Update Quantity</h3>
+    <input type="number" id="newQuantity" placeholder="Enter new quantity">
+    <button onclick="confirmUpdate()">Update</button>
+    <button onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
